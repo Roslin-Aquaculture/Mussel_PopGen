@@ -1,4 +1,4 @@
-#!/exports/cmvm/eddie/eb/groups/Regan_grp/anaconda/envs/orthofinder/bin/python
+#! bin/python
 #Name/date: TimRegan/2025.04.22
 
 """
