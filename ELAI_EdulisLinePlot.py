@@ -1,4 +1,4 @@
-#! bin/python
+#!/exports/cmvm/eddie/eb/groups/Regan_grp/anaconda/envs/orthofinder/bin/python
 # -*- coding: utf-8 -*-
 # Name/date: TimRegan/2025.05.07
 # File: ELAI_EdulisLinePlot.py
@@ -97,7 +97,7 @@ def plot_edulis_ancestry(data, title, output_file):
 
         # Label chromosomes
         mid = chr_offsets[chrom] + (chr_data["Pos"].max() - chr_data["Pos"].min()) / 2
-        ax.text(mid, 1.03, f"Chr{chrom}", ha='center', va='bottom', fontsize=8, transform=ax.get_xaxis_transform())
+        ax.text(mid, 1.03, f"Chr{chrom}", ha='center', va='bottom', fontsize=10, transform=ax.get_xaxis_transform())
 
     # Mean and ±SSD lines
     #ax.axhline(y=mean_dosage, color="red", linestyle="-", linewidth=1, label="Mean Edulis Dosage")
@@ -200,7 +200,7 @@ def plot_all_populations(all_data, output_file="All_Populations_Medulis_ancestry
     for chrom in sorted(data["Chr"].unique()):
         chr_data = data[data["Chr"] == chrom]
         mid = chr_offsets[str(chrom)] + (chr_data["Pos"].max() - chr_data["Pos"].min()) / 2
-        ax.text(mid, 1.03, f"Chr{chrom}", ha='center', va='bottom', fontsize=8, transform=ax.get_xaxis_transform())
+        ax.text(mid, 1.03, f"Chr{chrom}", ha='center', va='bottom', fontsize=10, transform=ax.get_xaxis_transform())
 
     # Configure plot
     ax.set_xlabel("Genome-wide Position (Gb)")
