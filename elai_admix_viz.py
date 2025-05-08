@@ -1,71 +1,70 @@
-#! bin/python
-#Name: elai_admix_viz.py
-#Purpose: To visualise the global ancestry for each pop on one graph
- 
+#!/exports/cmvm/eddie/eb/groups/Regan_grp/anaconda/envs/orthofinder/bin/python
+# Name: elai_admix_viz.py
+# Purpose: To visualise the global ancestry for each pop on one graph (split violin)
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns  # For violin plots
- 
+
 # Function to Load Admixture Data
 def load_admix_data(admix_file, population_name):
     """
     Load admixture proportion data from .admix.txt file.
     """
     admix_data = np.loadtxt(admix_file)  # Load as NumPy array
-    df = pd.DataFrame(admix_data, columns=["M. gallo_Atl", "Cromarty (M. edulis)"])
-     
-    # Add population column for hue
+    df = pd.DataFrame(admix_data, columns=["$\it{M. galloprovincialis}$ (Atlantic)", "$\it{M. edulis}$ (Cromarty)"])
     df["Population"] = population_name 
     return df
- 
+
 # Function to Plot Split Violin
 def plot_split_violin(admix_files, titles, output_file):
     """
     Creates a split violin plot to show the distribution of admixture proportions.
     """
-    all_data = []  # Store all population data
- 
-    # Load each population's data
+    all_data = []
     for admix_file, title in zip(admix_files, titles):
         df = load_admix_data(admix_file, title)
         all_data.append(df)
- 
-    # Combine into one DataFrame
+
     df_melted = pd.concat(all_data).melt(id_vars=["Population"], var_name="Ancestry", value_name="Proportion")
- 
-    plt.figure(figsize=(8, 6))
- 
-    # Define Muted Colors (Matching Per-Chromosome Graphs)
-    colors = ["#e69f00", "#4c72b0"]  # Muted orange & blue 
- 
-    # Create split violin plot
-    ax = sns.violinplot(x="Population", y="Proportion", hue="Ancestry", data=df_melted,
-                        split=True, palette=colors, inner="quartile", saturation=1)
+
+    fig, ax = plt.subplots(figsize=(10, 6))  # Wider to accommodate legend
+
+    # Muted orange & blue
+    colors = ["#e69f00", "#4c72b0"]
+    
+    sns.violinplot(
+        x="Population", y="Proportion", hue="Ancestry", data=df_melted,
+        split=True, palette=colors, inner="quartile", saturation=1, ax=ax
+    )
     plt.setp(ax.collections, alpha=0.7)
- 
-    plt.title("Global Admixture Proportions")
-    plt.ylabel("Ancestry Proportion")
-    plt.ylim(0, 1)  # Full scale (0-100%)
- 
-    plt.tight_layout()
-    plt.savefig(f"{output_file}_split_violin.png")
+
+    ax.set_title("Global Admixture Proportions")
+    ax.set_ylabel("Ancestry Proportion")
+    ax.set_ylim(0, 1)
+
+    # Legend outside plot
+    ax.legend(title="Ancestry", bbox_to_anchor=(1.02, 0.5), loc="center left", frameon=False)
+
+    # Adjust layout for legend
+    fig.subplots_adjust(right=0.85)
+    plt.savefig(f"{output_file}_split_violin.png", dpi=300, bbox_inches="tight")
     plt.show()
- 
-# Main Function to Run for All Populations
+
+# Main Function
 def main():
     admix_files = [
-        "ELAI_Results_WesIsl.admix.txt",
+        "ELAI_Results_Aberdeen.admix.txt",
         "ELAI_Results_Shetland.admix.txt",
+        "ELAI_Results_WesIsl.admix.txt",
         "ELAI_Results_Irl_Atl.admix.txt",
         "ELAI_Results_M.edulis_Eng.admix.txt",
-        "ELAI_Results_M.edulis_Nor.admix.txt",
-        "ELAI_Results_Aberdeen.admix.txt"
+        "ELAI_Results_M.edulis_Nor.admix.txt"
     ]
-     
-    titles = ["Western Isles", "Shetland", "Ireland", "M. edulis Eng", "M. edulis Nor", "Aberdeen"]
- 
+    
+    titles = ["Aberdeen", "Shetland", "Western Isles", "Ireland", "English $\it{M. edulis}$", "Nordic $\it{M. edulis}$"]
     plot_split_violin(admix_files, titles, "global_admixture")
- 
+
 if __name__ == "__main__":
     main()
