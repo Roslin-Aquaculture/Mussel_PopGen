@@ -107,37 +107,38 @@ plink --bfile M.edulis_Eng_subset --recode bimbam --allow-extra-chr 0 --out M.ed
 plink --bfile Aberdeen_subset --recode bimbam --allow-extra-chr 0 --out Aberdeen_elai
 
 #Run ELAI for these poplationsusing M. gallo Atlantic as source population 1 and Cromarty (M. edulis) as source population 2
-# Assunmptions here are 2 upper clusters (-C), 10 lower clusters (-c 10) and 50 admixing generations (-mg) over 50 EM steps (-s).
- 
-../../../ELAI/elai-lin -g M.gallo_Atl_elai.recode.geno.txt -p 10 -g Cromarty_elai.recode.geno.txt -p 11 \
--g Western_Isles_elai.recode.geno.txt -p 1 \
--pos Western_Isles_elai.recode.pos.txt \
--C 2 -c 10 -s 30 -mg 50 -o ELAI_Results_WesIsl
- 
-../../../ELAI/elai-lin -g M.gallo_Atl_elai.recode.geno.txt -p 10 -g Cromarty_elai.recode.geno.txt -p 11 \
--g Shetland_elai.recode.geno.txt -p 1 \
--pos Shetland_elai.recode.pos.txt \
--C 2 -c 10 -s 30 -mg 50 -o ELAI_Results_Shetland
- 
-../../../ELAI/elai-lin -g M.gallo_Atl_elai.recode.geno.txt -p 10 -g Cromarty_elai.recode.geno.txt -p 11 \
--g Irl_Atl_elai.recode.geno.txt -p 1 \
--pos Irl_Atl_elai.recode.pos.txt \
--C 2 -c 10 -s 30 -mg 50 -o ELAI_Results_Irl_Atl
- 
-../../../ELAI/elai-lin -g M.gallo_Atl_elai.recode.geno.txt -p 10 -g Cromarty_elai.recode.geno.txt -p 11 \
--g M.edulis_Eng_elai.recode.geno.txt -p 1 \
--pos M.edulis_Eng_elai.recode.pos.txt \
--C 2 -c 10 -s 30 -mg 50 -o ELAI_Results_M.edulis_Eng
- 
-../../../ELAI/elai-lin -g M.gallo_Atl_elai.recode.geno.txt -p 10 -g Cromarty_elai.recode.geno.txt -p 11 \
--g M.edulis_Nor_elai.recode.geno.txt -p 1 \
--pos M.edulis_Nor_elai.recode.pos.txt \
--C 2 -c 10 -s 30 -mg 50 -o ELAI_Results_M.edulis_Nor
+# Options here include 2 upper clusters (source populations (-C), 10 lower clusters (-c 10) computed over over 50 EM steps (-s). 
+# Finally, the number of admixing generations (-mg) was estimated based on Admixture results.
  
 ../../../ELAI/elai-lin -g M.gallo_Atl_elai.recode.geno.txt -p 10 -g Cromarty_elai.recode.geno.txt -p 11 \
 -g Aberdeen_elai.recode.geno.txt -p 1 \
 -pos Aberdeen_elai.recode.pos.txt \
--C 2 -c 10 -s 30 -mg 50 -o ELAI_Results_Aberdeen
+-C 2 -c 10 -s 50 -mg 3 -o ELAI_Results_Aberdeen
+
+../../../ELAI/elai-lin -g M.gallo_Atl_elai.recode.geno.txt -p 10 -g Cromarty_elai.recode.geno.txt -p 11 \
+-g Western_Isles_elai.recode.geno.txt -p 1 \
+-pos Western_Isles_elai.recode.pos.txt \
+-C 2 -c 10 -s 50 -mg 30 -o ELAI_Results_WesIsl
+ 
+../../../ELAI/elai-lin -g M.gallo_Atl_elai.recode.geno.txt -p 10 -g Cromarty_elai.recode.geno.txt -p 11 \
+-g Shetland_elai.recode.geno.txt -p 1 \
+-pos Shetland_elai.recode.pos.txt \
+-C 2 -c 10 -s 50 -mg 10 -o ELAI_Results_Shetland
+ 
+../../../ELAI/elai-lin -g M.gallo_Atl_elai.recode.geno.txt -p 10 -g Cromarty_elai.recode.geno.txt -p 11 \
+-g Irl_Atl_elai.recode.geno.txt -p 1 \
+-pos Irl_Atl_elai.recode.pos.txt \
+-C 2 -c 10 -s 50 -mg 20 -o ELAI_Results_Irl_Atl
+ 
+../../../ELAI/elai-lin -g M.gallo_Atl_elai.recode.geno.txt -p 10 -g Cromarty_elai.recode.geno.txt -p 11 \
+-g M.edulis_Eng_elai.recode.geno.txt -p 1 \
+-pos M.edulis_Eng_elai.recode.pos.txt \
+-C 2 -c 10 -s 50 -mg 20 -o ELAI_Results_M.edulis_Eng
+ 
+../../../ELAI/elai-lin -g M.gallo_Atl_elai.recode.geno.txt -p 10 -g Cromarty_elai.recode.geno.txt -p 11 \
+-g M.edulis_Nor_elai.recode.geno.txt -p 1 \
+-pos M.edulis_Nor_elai.recode.pos.txt \
+-C 2 -c 10 -s 50 -mg 80 -o ELAI_Results_M.edulis_Nor
 
 #This produced ELAI output files in an output folder with extensions:
 # .snpinfo.txt, .admix.txt, .ps21.txt whcih will be used for viz.
