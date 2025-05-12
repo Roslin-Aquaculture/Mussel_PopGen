@@ -13,4 +13,4 @@ Then run the PLINK_and_ELAI.sh bash commands.
 
 This will output plots of Ne, pairwise Fst etc. and walk you through using ELAI.
 
-Fimally, get summary data using the elai_visualisation.py and ELAI_EdulisLinePlot.py scripts. 
+Finally, get summary data using the elai_visualisation.py and ELAI_EdulisLinePlot.py scripts. 
