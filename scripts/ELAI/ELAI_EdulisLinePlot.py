@@ -1,4 +1,4 @@
-#!/exports/cmvm/eddie/eb/groups/Regan_grp/anaconda/envs/orthofinder/bin/python
+#!/bin/python
 # -*- coding: utf-8 -*-
 # Name/date: TimRegan/2025.08.07
 # File: ELAI_EdulisLinePlot.py
@@ -100,7 +100,7 @@ def plot_edulis_ancestry(data, title, output_file):
         mid = chr_offsets[chrom] + (chr_data["Pos"].max() - chr_data["Pos"].min()) / 2
         ax.text(mid, 1.03, f"Chr{chrom}", ha='center', va='bottom', fontsize=10, transform=ax.get_xaxis_transform())
 
-    # Mean and ±SSD lines
+    # Mean and Â±SSD lines
     #ax.axhline(y=mean_dosage, color="red", linestyle="-", linewidth=1, label="Mean Edulis Dosage")
     #ax.axhline(y=mean_dosage + std_4dosage, color="grey", linestyle="--", linewidth=0.8, label="+/- 4*SD")
     ax.axhline(y=mean_dosage, color="red", linestyle="-", linewidth=1)
