@@ -1,4 +1,4 @@
-#!/exports/cmvm/eddie/eb/groups/Regan_grp/anaconda/envs/orthofinder/bin/python
+#!/bin/python
 # -*- coding: utf-8 -*-
 # Name/date: TimRegan/2025.05.06
 # File: SNP_DensityGenomePlot.py
