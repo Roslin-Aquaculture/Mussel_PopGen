@@ -1,4 +1,4 @@
-#!/exports/cmvm/eddie/eb/groups/Regan_grp/anaconda/envs/orthofinder/bin/python
+#!/bin/python
 # Name: elai_admix_viz.py
 # Purpose: To visualise the global ancestry for each pop on one graph (split violin)
 
