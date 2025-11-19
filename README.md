@@ -41,18 +41,9 @@ See: `scripts/ELAI/README_ELAI.md`
 Includes:  
 - Input preparation  
 - Reference definition  
-- Running ELAI across multiple K/Kupper values  
-- Aggregation  
-- Interpretation
-
-## 5. Plotting
-All figure-generation scripts are in `scripts/plotting/` including:  
-- PCA plots  
-- ADMIXTURE barplots  
-- Entropy triangle plot  
-- ELAI ancestry tracks  
-- FST heatmaps  
-- LD decay curves
+- Running ELAI 
+- Visualisation
+- 
 
 ---
 
