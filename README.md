@@ -1,6 +1,7 @@
 # Mussel_PopGen
-This repository provides a complete, reproducible workflow for analysing population structure, introgression, and local ancestry in *Mytilus* spp. using the 60k MytiSNP-array  [See Nascimento-Schulze et al.](https://doi.org/10.1111/eva.13552). 
-It includes QC, PCA, ADMIXTURE, FST, LD, entropy, ELAI, and triangle plots, together with documentation and example commands.
+This repository provides a complete, reproducible workflow for analysing population structure, introgression, and local ancestry in *Mytilus* spp. using the 60k MytiSNP-array  ([See Nascimento-Schulze et al.](https://doi.org/10.1111/eva.13552)).
+
+This workflow includes QC, PCA, ADMIXTURE, FST, LD, entropy, ELAI, and a triangle plot for admixture of K=2, together with documentation and example commands.
 
 Here, we are workkng on datasets which have already been produced from raw .cel files using AxiomSuite.   
 
