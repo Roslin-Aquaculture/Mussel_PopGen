@@ -108,6 +108,7 @@ Rscript convergence_diag_fixed.R converge_K4 4 \
 mussel_k4_chain1.hdf5 mussel_k4_chain2.hdf5 mussel_k4_chain3.hdf5
 ```
 # Example output:
+```
 K2
 
 Potential scale reduction factors:
@@ -131,7 +132,7 @@ Potential scale reduction factors:
      Point est. Upper C.I.
      
 [1,]        1.2       1.24
-
+```
 
 # Plot the admixture, custom R script
 e.g. for K=2
@@ -141,7 +142,6 @@ Rscript plot_admix_from_hdf5.R inds_mussel_all.txt K2 2 mussel_k2_chain1.hdf5 mu
 
 # Triangle plot custom R script:
 ```bash
-Rscript triangle_plot_entropy.R triangle_k2_mussel.pdf \
-  inds_mussel_all.txt \
-  mussel_k2_chain1.hdf5 mussel_k2_chain2.hdf5 mussel_k2_chain3.hdf5
+Rscript Plot_entropy_triangles.R 
 ```
+Note: This script is custom written for this data - not just the file names, but the populations etc. will all need to be stated in the script. 
